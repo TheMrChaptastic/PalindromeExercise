@@ -9,13 +9,26 @@ namespace PalindromeExercise
     {
         public bool IsAPalindrome(string s)
         {
-            if (s == null || s == ""){
+            if (s == null || s == "")
+            {
                 return false;
             }
-            var cArr = s.Replace(" ", "").ToLower().ToCharArray();
+
+            var symbols = " .!,?";
+            for (int i = 0; i < symbols.Length; i++)
+            {
+                s = s.Replace(symbols[i].ToString(), "");
+            }
+
+            if (s == "")
+            {
+                return false;
+            }
+
+            var cArr = s.ToLower().ToCharArray();
             cArr = cArr.Reverse().ToArray();
             var nStr = new string(cArr);
-            return nStr == s.Replace(" ", "").ToLower() ? true : false;
+            return nStr == s.ToLower() ? true : false;
         }
     }
 }
