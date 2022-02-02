@@ -9,6 +9,8 @@ namespace PalindromeExerciseTests
         [InlineData("racecar", true)]
         [InlineData("corey", false)]
         [InlineData("Do geese see God",true)]
+        [InlineData(null, false)]
+        [InlineData("", false)]
         public void WordSmith(string s, bool expected)
         {
             var testing = new PalindromeExercise.WordSmith();
